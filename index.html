@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flight to Mars</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Заявка на экскурсионный полет на Марс</h1>
+        </header>
+        <article class="content">
+            <form action="">
+                <ul class="form-group">
+                    <li>
+                        <span>Фамилия</span>
+                        <input type="text" id="last-name" name="last-name">
+                    </li>
+                    <li class="center">
+                        <input type="checkbox" id="check" name="check">
+                        <label for="check">Ранее менялась</label>
+                    </li>
+                    <li>
+                        <span>Имя</span>
+                        <input type="text" id="first-name" name="first-name">
+                    </li>
+                    <li>
+                        <span>Отчество</span>
+                        <input type="text" id="middle-name" name="middle-name">
+                    </li>
+                </ul>
+                <div class="main">
+                    <div class="rectangle">
+                        <div class="padding">
+                            <p class="rect">
+                                Если вы не хотите лететь в багажном отсеке, пожалуйста, укажите ваше отчество.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="back"></div>
+                </div>
+                <ul class="form-group">
+                    <li>
+                        <span>Фамилия латиницей</span>
+                        <input type="text" id="last-lat" name="last-lat" required pattern="^[a-zA-Z]+$">
+                    </li>
+                    <li>
+                        <span>Имя латиницей</span>
+                        <input type="text" id="first-lat" name="first-lat" required pattern="^[a-zA-Z]+$">
+                    </li>
+                </ul>
+                <ul class="form-group date">
+                    <li>
+                        <span>Дата рождения</span>
+                        <select id="day" name="day" class="rounded">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
+                        </select>
+                        <select id="month" name="month" class="rounded">
+                            <option>январь</option>
+                            <option>февраль</option>
+                            <option>март</option>
+                            <option>апрель</option>
+                            <option>май</option>
+                            <option>июнь</option>
+                            <option>июль</option>
+                            <option>август</option>
+                            <option>сентябрь</option>
+                            <option>октябрь</option>
+                            <option>ноябрь</option>
+                            <option>декабрь</option>
+                        </select>
+                        <select id="year" name="year" class="rounded" onchange="onYearChange(this)">
+                            <option>1920</option>
+                            <option selected>1930</option>
+                            <option>1940</option>
+                            <option>1950</option>
+                            <option>1960</option>
+                            <option>1970</option>
+                            <option>1980</option>
+                            <option>1990</option>
+                            <option>2000</option>
+                            <option>2010</option>
+                        </select>
+                    </li>
+                </ul>
+                <div id="yearTextBlock" class="main" style="display:none">
+                    <div class="rectangle-yellow">
+                        <div class="padding">
+                            <p class="rect">
+                                Какой-то текст про то, почему нельзя лететь тем, кому за 90.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="back"></div>
+                </div>
+                <ul class="form-group radios-as-buttons">
+                    <li>
+                        <span>Пол</span>
+                    </li>
+                    <li class="radio">
+                        <input type="radio" id="male" name="gender" onclick="show1();">
+                        <label for="male">мужской</label>
+                    </li>
+                    <li class="radio">
+                        <input type="radio" id="female" name="gender" onclick="show2();">
+                        <label for="female">женский</label>
+                    </li>
+                </ul>
+                <ul class="form-group">
+                    <li id="hide-male" class="hide">
+                        <span>Семейное положение</span>
+                        <select id="status-man" name="status-man" class="rounded">
+                            <option selected>женат</option>
+                            <option>в "гражданском браке"</option>
+                            <option>разведён</option>
+                            <option>холост</option>
+                            <option>вдовец</option>
+                        </select>
+                    </li>
+                    <li id="hide-female" class="hide">
+                        <span>Семейное положение</span>
+                        <select id="status-woman" name="status-woman" class="rounded">
+                            <option selected>замужем</option>
+                            <option>в "гражданском браке"</option>
+                            <option>разведена</option>
+                            <option>не замужем</option>
+                            <option>вдова</option>
+                        </select>
+                    </li>
+                    <li>
+                        <span>Образование</span>
+                        <select id="education" name="education" class="rounded">
+                            <option>высшее</option>
+                            <option selected>среднее специальное</option>
+                            <option>среднее</option>
+                            <option>студент</option>
+                        </select>
+                    </li>
+                </ul>
+                <ul class="form-group">
+                    <h2 class="contacts">Контактная информация</h2>
+                    <li>
+                        <span>Моб. телефон</span>
+                        <input type="tel" id="phone" name="phone" placeholder="+7">
+                    </li>
+                    <li>
+                        <span>Электронная почта</span>
+                        <input type="email" id="email" name="email">
+                    </li>
+                </ul>
+            </form>
+        </article>
+        <aside class="sidebar">
+            <h3 class="bold">Почему стабильно солнечное затмение?</h3>
+            <p>Эффективный диаметр жизненно вызывает случайный эффективный радиус, а время ожидания ответа составило бы
+                <br>80 миллиардов лет.
+            </p>
+        </aside>
+        <footer>
+            <ul class="form-group gender">
+                <li>
+                    <input type="checkbox" id="okey" name="okey" onchange="onCheckboxChange(this);">
+                    <label for="okey" class="okey">Ставя эту галочку, я подтверждаю, что поставил ее в трезвом уме и трезвой памяти.
+                    </label>
+                </li>
+                <li>
+                    <input id="submit" type="submit" name="submit" value="Полететь на Марс">
+                </li>
+            </ul>
+        </footer>
+    </div>
+    </div>
+    <script>
+        function show1() {
+            document.getElementById('hide-female').style.display = 'none';
+            document.getElementById('hide-male').style.display = 'block';
+        }
+
+        function show2() {
+            document.getElementById('hide-male').style.display = 'none';
+            document.getElementById('hide-female').style.display = 'block';
+        }
+
+        function onCheckboxChange(element) {
+            if (element.checked) {
+                document.getElementById('submit').style.color = 'black';
+            } else {
+                document.getElementById('submit').style.color = '#A0A0A5';
+            }
+        }
+
+        function onYearChange(element) {
+            var selectedYear = parseInt(element.value, 10)
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var age = currentYear - selectedYear;
+            if (age > 90) {
+                document.getElementById("yearTextBlock").style.display = 'block';
+            } else {
+                document.getElementById("yearTextBlock").style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</body>
+
+</html>
